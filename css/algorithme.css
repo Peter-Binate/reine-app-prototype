@@ -1,0 +1,217 @@
+@font-face {
+  font-family: "CaviarDreams";
+  src: url("../police/caviardreams/CaviarDreams.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "CaviarDreamsBold";
+  src: url("../police/caviardreams/CaviarDreams_Bold.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "CaviarDreams";
+  background-image: url(../image/ciel_3.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/*Début Arbre à mots*/
+.tree {
+  display: flex;
+  justify-content: center;
+  min-width: 100%;
+  min-height: 100vh;
+  font-family: "CaviarDreams";
+}
+
+.tree ul {
+  padding-top: 40px;
+  position: relative;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+.tree li {
+  float: left;
+  text-align: center;
+  list-style-type: none;
+  position: relative;
+  padding: 40px 5px 0 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+
+/*We will use ::before and ::after to draw the connectors*/
+
+.tree li::before,
+.tree li::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 49.55%;
+  border-top: 2px solid #00416a;
+  width: 50%;
+  height: 40px;
+}
+.tree li::after {
+  right: auto;
+  left: 50%;
+  border-left: 2px solid #00416a;
+}
+
+/*We need to remove left-right connectors from elements without
+any siblings*/
+.tree li:only-child::after,
+.tree li:only-child::before {
+  display: none;
+}
+
+/*Remove space from the top of single children*/
+.tree li:only-child {
+  padding-top: 0;
+}
+
+/*Remove left connector from first child and
+right connector from last child*/
+.tree li:first-child::before,
+.tree li:last-child::after {
+  border: 0 none;
+}
+/*Adding back the vertical connector to the last nodes*/
+.tree li:last-child::before {
+  border-right: 2px solid #00416a;
+  border-radius: 0 5px 0 0;
+  -webkit-border-radius: 0 5px 0 0;
+  -moz-border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after {
+  border-radius: 2px 0 0 0;
+  -webkit-border-radius: 5px 0 0 0;
+  -moz-border-radius: 5px 0 0 0;
+}
+
+/*Time to add downward connectors from parents*/
+.tree ul ul::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  border-left: 2px solid #00416a;
+  width: 0;
+  height: 40px;
+}
+
+.tree li a {
+  border: 3px solid #00416a;
+  text-decoration: none;
+  color: #00416a;
+  font-size: 15px;
+  display: inline-block;
+
+  -moz-border-radius: 5px;
+
+  transition: all 0.5s;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+}
+.classe1 a,
+.classe2 a,
+.classe3 a,
+.classe4 a,
+.classe5 a {
+  border-radius: 100px;
+  padding: 30px 30px;
+  width: 50px;
+  height: 50px;
+}
+
+/*TITRE nommer "Classe"*/
+.classe1 p,
+.classe2 p,
+.classe3 p,
+.classe4 p,
+.classe5 p {
+  font-size: 18px;
+  color: #00416a;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  padding-top: 12px;
+}
+
+.classe1 a {
+  background: #39b7ff;
+}
+
+.classe2 a {
+  background: #43d9ff;
+}
+
+.classe3 a {
+  background: #d6eefd;
+}
+
+.classe4 a {
+  background: #e1e1e1;
+}
+
+.classe5 a {
+  background: #ffffff;
+}
+
+.Resultat a {
+  background: white;
+  margin: auto;
+  padding: 30px 30px;
+  width: 70px;
+  height: 70px;
+  border-radius: 100px;
+}
+
+.Resultat p {
+  font-size: 20px;
+  color: #00416a;
+  display: flex;
+  justify-content: center;
+  white-space: nowrap;
+  padding-top: 20px;
+}
+
+.section a {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 20px;
+  border-radius: 10px;
+  width: auto;
+  height: auto;
+}
+
+h3 {
+  color: #fff;
+  padding-bottom: 10px;
+}
+
+/*mot avec une jauge verte */
+.charts__chart {
+  height: 2px;
+  color: #fff;
+  padding-bottom: 10px;
+}
+/*Fin Arbre à mots*/
